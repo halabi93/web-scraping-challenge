@@ -1,0 +1,45 @@
+body{
+	background-color: lightgray;
+}
+
+.container{
+        padding: 5px;
+        margin-top: 20px;
+        background-color: white;
+    }
+
+.row {
+    padding: 5px;
+    margin: 10px;
+}
+
+
+h3{
+    font-weight: bold;
+    background-color: none;
+    text-align: left;
+    text-decoration: none;
+    white-space: nowrap;
+}
+
+h5 {
+    margin-top: 10px;
+}
+
+p{
+    font-size: 16px;
+    text-align: justify;
+}
+
+#headline{
+    margin-left: 13px;
+}
+
+#hemisphere{
+    text-align: center;
+}
+
+img{
+    width: 144px;
+    padding: 0%;
+}

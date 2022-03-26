@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Project - Mission to Mars</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="main.css">
+</head>
+
+<body>
+    <div class="container">
+        <div class="jumbotron text-center">
+            <h1>Mission to Mars</h1>
+            <br />
+            <a class="btn btn-primary btn-lg" href="/scrape" role="button">Scrape New Data</a>
+        </div>
+    </div>
+    <!-- Main -->
+    <div class="container">
+        <div class="row">
+            <h3 id="headline">Latest Mars News</h3>
+            <div class="row">
+                <h6>{{ scraping.Title }}</h6>
+                <p>{{ scraping.Paragraph }}</p>
+            </div>
+            <div class="col-lg-8 summary">
+                <h3>Featured Mars Image</h3>
+                <img class="img-fluid" src="{{ scraping.ImageURL }}" style="width:100%">
+            </div>
+            <div class="col-lg-4 visualization">
+                <div class=“container col-lg-4 col-md-4 “>
+                    <h5>Mars Facts</h5>
+                    <div class="table-responsive">
+                        <div class="table table-striped">
+                            {{ scraping.TableHTML|safe}}
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Main -->
+    <div class="container">
+        <div class="row">
+            <div class="col">
+                <div class="col visualization">
+                    <article>
+                        <h3 id="hemisphere">Mars Hemispheres</h3>
+                        <hr>
+                        <!-- <div class="borderbox"> -->
+                        <div class="container">
+                            {% for data in scraping.ListImages %}
+                            <div class="row">
+                                <div class="col">
+                                    <img class="img-fluid" src="{{ data.img_url }}" style="width:100%">
+                                    <br /><br />
+                                    <p>{{data.title}}</p>
+                                    <br />
+                                </div>
+                            </div>
+                            {% endfor %}
+                        </div>
+                    </article>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>
