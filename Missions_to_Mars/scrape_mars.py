@@ -84,7 +84,7 @@ def scrape():
         results_new = soup.find_all('li')
         for n in range(len(results_new)):
             if results_new[n].a.text == 'Sample':
-                hemisphere_image_urls.append({"title": list_hemispheres[i].replace("Hemisphere Enhanced", 'Hemisphere'), "img_url": results_new[0].a["href"]})
+                hemisphere_image_urls.append({"title": list_hemispheres[i].replace("Hemisphere Enhanced", 'Hemisphere'), "img_url": "https://marshemispheres.com/" + results_new[0].a["href"]})
         browser.visit(url_marshemispheres)
     
     scraped_data["ListImages"] = hemisphere_image_urls
